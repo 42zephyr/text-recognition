@@ -1,0 +1,12 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+#image-preview {
+    max-width: 100%;
+    max-height: 300px;
+  }
+#result {
+    white-space: pre-wrap;
+    text-align: left;
+  }
