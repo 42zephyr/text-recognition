@@ -10,3 +10,15 @@ body {
     white-space: pre-wrap;
     text-align: left;
   }
+.first{
+  background-color: blue;
+}
+.middle{
+  color: green;
+}
+.last{
+  color: red;
+}
+.other{
+  color: purple;
+}

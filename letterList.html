@@ -1,0 +1,7 @@
+    <ul>
+<li ng-repeat="letter in recognizedText track by $index">
+<b>{{$index+ ":" +letter | lowercase|limitTo:100}}</b>
+<ul ng-repeat="byte in letter">
+{{byte}}            </ul>
+</li >
+</ul>

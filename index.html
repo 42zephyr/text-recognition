@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="orcApp">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HTML 5 Boilerplate</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.0.2/dist/tesseract.min.js"></script>
+      <script src="app.js"></script>
+    <style src="styles.css"></style>
   </head>
-  <body>
-    <input type="file" id="image-input" accept="image/jpeg, image/png" onchange="previewImage(event)">
-    <img id="image" src="#" alt="#">
-    <button id="extract-btn" onclick="extractText()">Виділити</button>
-    <pre id="result"></pre>
-    <button id="copy-btn" onclick="copyText()">Копіювати</button>
+<body ng-controller="OcrController">
+
+  <div class="container">
+    <h1>Розпізнавання тексту з зображення</h1>
+
+    <input type="file" accept="image/png, image/jpeg" onchange="angular.element(this).scope().previewImage(event)">
+    <img ng-src="{{imageSrc}}" ng-if="imageSrc" alt="Завантажене зображення">
     
-	<script type="module" src="main.js"></script>
-  </body>
+    <button ng-click="extractText()" ng-disabled="!uploadedFile">Розпізнати текст</button>
+    <button ng-click="copyText()" ng-disabled="!recognizedText">Копіювати текст</button>
+
+    <pre ng-if="!recognizedText">=</pre>
+    <pre ng-if="recognizedText">{{recognizedText}}</pre>
+ <div ng-include="extractText()"></div>
+  </div>
+
+</body>
 </html>
